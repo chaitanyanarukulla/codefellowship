@@ -7,6 +7,7 @@ package com.chai.codefellowship.codefellowship;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -37,6 +38,25 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .cors().disable()
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/*").permitAll();
+                // allow requests to all URLS that match the patterns even if not logged in
+                .antMatchers( "/users", "/login", "/signUp").permitAll()
+                // anything else, you must be logged in
+                .anyRequest().authenticated()
+                .and()
+                .formLogin()
+                .loginPage("/singUp")
+                .and()
+                .logout();
+    }
+
+    @Override
+    @Bean
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManagerBean();
+    }
+
+    @Bean
+    public UserDetailsServiceImpl getUserDetailsService() {
+        return new UserDetailsServiceImpl();
     }
 }

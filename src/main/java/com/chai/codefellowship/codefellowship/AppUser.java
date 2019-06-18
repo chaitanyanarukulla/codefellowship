@@ -20,12 +20,20 @@ public class AppUser implements UserDetails {
 
     String username;
     String password;
+    String fname;
+    String lname;
+    String dob;
+    String bio;
 
     public AppUser() {}
 
-    public AppUser(String username, String password) {
+    public AppUser(String username, String password,String fname,String lname, String dob,String bio) {
         this.username = username;
         this.password = password;
+        this.fname = fname;
+        this.lname = lname;
+        this.dob = dob;
+        this.bio = bio;
     }
 
     @Override

@@ -25,29 +25,25 @@ public class AppUserController {
     PasswordEncoder bCryptPasswordEncoder;
 
 
-    @PostMapping("/users")
-    public RedirectView createUser(String username, String password) {
-        AppUser newUser = new AppUser(username, bCryptPasswordEncoder.encode(password));
+    @PostMapping("/singUp")
+    public RedirectView createUser(String username, String password,String fname, String lname, String dob, String bio) {
+        AppUser newUser = new AppUser(username, bCryptPasswordEncoder.encode(password),fname,lname,dob,bio);
         appUserRepository.save(newUser);
         Authentication authentication = new UsernamePasswordAuthenticationToken(newUser, null, new ArrayList<>());
         SecurityContextHolder.getContext().setAuthentication(authentication);
-        return new RedirectView("/");
+        return new RedirectView("/myProfile");
     }
 
     @GetMapping("/login")
     public String getLoginPage() {
-        return "login";
+        return "login.html";
     }
 
-    @Controller
-    public class singup {
 
-        @GetMapping("/")
-        public String getUser(Principal p, Model m) {
-            System.out.println(p.getName());
-            m.addAttribute("principal", p);
-            return "singup";
-        }
+    @GetMapping("/singUp")
+    public String getSignUpForm(){
+        return "singUp.html";
+
     }
 
 }
