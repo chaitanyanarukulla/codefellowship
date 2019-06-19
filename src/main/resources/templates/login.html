@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/base-min.css">
+<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+
 
 <head>
     <meta charset="UTF-8">
@@ -8,11 +11,23 @@
 </head>
 <body>
 <h1>Log in</h1>
-<form action="/login" method="POST">
+<form class="pure-form pure-form-aligned" action="/login" method="POST">
+    <div class="pure-control-group">
+        <label>Username</label>
     <input name="username" />
+        <span class="pure-form-message-inline">This is a required field.</span>
+    </div>
+
+    <div class="pure-control-group">
+        <label>Password</label>
     <input name="password" />
-    <input type="submit" />
+        <span class="pure-form-message-inline">This is a required field.</span>
+
+
+    </div>
 </form>
+
+<input  type="submit" />
 <a th:href="@{/signup}">Sign Up</a>
 </body>
 </html>
