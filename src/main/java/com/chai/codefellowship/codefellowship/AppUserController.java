@@ -1,16 +1,15 @@
 package com.chai.codefellowship.codefellowship;
 
+//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
-
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.Date;
@@ -32,13 +31,9 @@ public class AppUserController {
         appUserRepository.save(newUser);
         Authentication authentication = new UsernamePasswordAuthenticationToken(newUser, null, new ArrayList<>());
         SecurityContextHolder.getContext().setAuthentication(authentication);
-        return new RedirectView("/");
+        return new RedirectView("/profile");
     }
-//  // Home page
-//    @GetMapping("/")
-//    public RedirectView goLogin(){
-//        return new RedirectView("/login");
-//    }
+
   //Login page
     @GetMapping("/login")
     public String getLoginPage() { return "login"; }
@@ -50,10 +45,6 @@ public class AppUserController {
         m.addAttribute("user", user);
         return "users.html";
     }
-
-//    @PostMapping("/login")
-//    public RedirectView
-
   //sing up page
     @GetMapping("/signup")
     public String getAddSignUpForm() {
@@ -73,6 +64,11 @@ public class AppUserController {
         AppUser user = appUserRepository.findById(id).get();
         m.addAttribute("user", user);
         return "details";
+    }
+
+    @GetMapping("/logout")
+    public String getLogoutPage() {
+        return "logout";
     }
 
 }
