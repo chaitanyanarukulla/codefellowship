@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+</head>
+<body>
+<h1>Profile</h1>
+<img src="user.jpeg" alt="UserPic">
+<ul>
+    <li th:each="user : ${user}">
+        Username: <span th:text="${user.username}"></span><br>
+        First Name: <span th:text="${user.fname}"></span><br>
+        Last Name: <span th:text="${user.lname}"></span><br>
+        Date of Birth: <span th:text="${user.dob}"></span><br>
+        Bio: <span th:text="${user.bio}"></span><br>
+    </li>
+</ul>
+</body>
+</html>
