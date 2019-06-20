@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/base-min.css">
-<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+<link rel="stylesheet" href="style.css">
 
 <head>
+ <div class="sin">  <a href="/logout">Logout</a></div>
     <meta charset="UTF-8">
     <title>Users</title>
 </head>
 <body>
 <h1>The Crew</h1>
 <ul>
-    <li th:each="user : ${user}">User Name: <span th:text="${user.username}"></span><br><a th:href="@{'/details/' + ${user.id}}">Details</a></li>
-    <a href="/logout">Logout</a>
+    <li th:each="user : ${user}">User Name: <span th:text="${user.username}"></span><br><a th:href="@{'/details/' + ${user.id}}">Details</a></li><br>
+
 </ul>
+<div th:replace="fragments/footer :: foot"></div>
 </body>
 </html>

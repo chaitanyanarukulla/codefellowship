@@ -18,6 +18,11 @@
     - shows the individual profile of a user
 - ```details```
     - see the details of a user when clicking
+- ```createpost```
+    - create post
+ - ```post```
+     - see the details of the post
+    
 
 
 ## Directions
@@ -36,7 +41,10 @@
 - ```localhost:8080/users```
 - ```localhost:8080/myprofile```
 - ```localhost:8080/details```
+- ```localhost:8080/createpost```
+- ```localhost:8080/post```
 
 
 ## Acknowledgments
 - Shout out to Luke chandler and class demo . 
+- https://codepen.io/marcobiedermann/pen/Fybpf for web log in page CSS

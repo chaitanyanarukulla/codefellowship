@@ -1,0 +1,9 @@
+<header class="nav" th:fragment="nav" xmlns:th="http://www.springframework.org/schema/security">
+    <nav>
+        <ul>
+            <li><a href="/users">All Users</a></li>
+            <li> <a th:href="@{/createpost}">Create a post</a></li>
+            <li><a href="/logout">Log out</a></li>
+        </ul>
+    </nav>
+</header>

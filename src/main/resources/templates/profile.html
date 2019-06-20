@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/base-min.css">
-<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<!--<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/base-min.css">-->
+<link rel="stylesheet" href="style.css">
 
 
 <head>
@@ -9,8 +11,13 @@
     <title>My Profile</title>
 </head>
 <body>
-<h1>My Profile</h1>
-<img alt="UserPic" src="user.jpeg">
+
+<div th:replace="fragments/header :: nav"></div>
+
+<div class="main1">
+<h1 >WellCome :  <span th:text="${user.username}"></span></h1>
+
+<h2> Profile</h2>
 <ul>
     <li th:each="user : ${user}">
         Username: <span th:text="${user.username}"></span><br>
@@ -20,7 +27,18 @@
         Bio: <span th:text="${user.bio}"></span><br>
     </li>
 </ul>
-<a th:href="@{/users}">Link To All Users!</a>
-<a href="/logout">Logout</a>
+
+
+<h3> Your Posts:</h3>
+<ul>
+    <li th:each="post :${user.posts}">
+        <span th:text="${post.body}"></span>
+<!--        <span th:text="${post.createdAt}"></span>-->
+        </a>
+    </li>
+</ul>
+</div>
+
+<div th:replace="fragments/footer :: foot"></div>
 </body>
 </html>
