@@ -10,7 +10,7 @@
 <div th:replace="fragments/header :: nav"></div>
 
 <div class="main1">
-    <h1 >WellCome :  <span th:text="${user.username}"></span></h1>
+    <h1 >Wellcome :  <span th:text="${user.username}"></span></h1>
     <h3> Your Profile</h3>
     <ul>
         <li th:each="user : ${user}">
@@ -22,16 +22,15 @@
         </li>
     </ul>
     <a th:href="@{/feed}">Feeds of people you are Following </a><br>
-// Posts
 <h3> Your Posts:</h3>
     <ul>
          <li th:each="post :${user.posts}">
         <span th:text="${post.body}"></span>
         </li>
     </ul>
-    <h4>You are  Following:</h4>
+    <h2>You are  Following:</h2>
     <ul>
-        <li th:each="followers : ${user.followers}"><span th:text= "${followers.username}"></span></li>
+        <li th:each="followers : ${user.followers}"><h3 th:text= "${followers.username}"></h3></li>
     </ul>
 </div>
 
