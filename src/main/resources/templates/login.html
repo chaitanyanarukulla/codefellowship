@@ -2,7 +2,8 @@
 
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/base-min.css">
-<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+<link rel="stylesheet" href="style.css">
+
 
 
 <head>
@@ -10,27 +11,21 @@
     <title>Log in </title>
 </head>
 <body>
-<h1>Log in</h1>
-<form class="pure-form pure-form-aligned" action="/login" method="POST">
-    <div class="pure-control-group">
-        <label>Username</label>
-        <input name="username" />
-        <span class="pure-form-message-inline">This is a required field.</span>
+
+<form  action="/login" method="POST">
+
+    <div class="login">
+
+        <input type="text" placeholder="Username" name="username">
+        <input type="password" placeholder="password" name="password">
+        <input type="submit" value="Sign In">
     </div>
+    <div class="shadow"></div>
+   <div class="sin"> <a  th:href="@{/signup}" >Sign Up</a></div>
 
-    <div class="pure-control-group">
-        <label>Password</label>
-        <input name="password" />
-        <span class="pure-form-message-inline">This is a required field.</span>
-
-
-    </div>
-    <input  type="submit" />
 </form>
 
 
-<a th:href="@{/signup}">Sign Up</a>
-
-<!--<div th:replace="fragments/footer :: foot"></div>-->
+<div th:replace="fragments/footer :: foot"></div>
 </body>
 </html>
