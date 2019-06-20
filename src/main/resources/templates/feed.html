@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+    <link href="/style.css" rel="stylesheet" />
+    <head>
+         <meta charset="UTF-8">
+        <title>Feeds</title>
+    </head>
+ <body>
+    <h2>Feeds of people you are Following:</h2>
+    <fieldset th:each="fish: ${user.followers}">
+    <legend th:text="${fish.username}"></legend>
+    <ul>
+        <li th:each="post: ${fish.posts}"><span th:text="${post.body}"></span></li>
+    </ul>
+    </fieldset>
+ </body>
+</html>

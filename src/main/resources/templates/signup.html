@@ -11,7 +11,8 @@
 
 </head>
 <body>
-<form class="pure-form pure-form-aligned" method="POST" action="/signup">
+<div class="sf">
+<form  method="POST" action="/signup">
 
     <label for="username">User Name:</label> <input name="username" id="username"/>
 
@@ -19,7 +20,7 @@
 
     <label for="fname">First Name:</label> <input name="fname" id="fname"/>
 
-    <label for="lname">Last NAme:</label> <input name="lname" id="lname"/>
+    <label for="lname">Last Name:</label> <input name="lname" id="lname"/>
 
     <label for="dob">Date Of Birth:</label> <input name="dob" id="dob"/>
 
@@ -28,7 +29,9 @@
 
     <input type="submit" />
 </form>
-<!--<div th:replace="fragments/footer :: foot"></div>-->
+
+</div>
+<div th:replace="fragments/footer :: foot"></div>
 
 </body>
 </html>

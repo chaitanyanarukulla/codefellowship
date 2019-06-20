@@ -1,8 +1,5 @@
 package com.chai.codefellowship.codefellowship;
-
-import org.springframework.data.annotation.CreatedDate;
 import javax.persistence.*;
-
 import java.time.LocalDateTime;
 
 
@@ -17,9 +14,6 @@ public class Post {
 
     @ManyToOne
     AppUser creator;
-
-
-
     public Post(){}
     public Post(String body, AppUser creator){
         this.body = body;
@@ -46,8 +40,6 @@ public class Post {
     public void setBody(String body) {
         this.body = body;
     }
-
-
 
     public void setCreator(AppUser creator) {
         this.creator = creator;
