@@ -3,17 +3,28 @@
 <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/base-min.css">
 <link rel="stylesheet" href="style.css">
 
-<head>
- <div class="sin">  <a href="/logout">Logout</a></div>
-    <meta charset="UTF-8">
-    <title>Users</title>
-</head>
-<body>
-<h1>The Crew</h1>
-<ul>
-    <li th:each="user : ${user}">User Name: <span th:text="${user.username}"></span><br><a th:href="@{'/details/' + ${user.id}}">Details</a></li><br>
+    <head>
+        <div class="sin">  <a href="/logout">Logout</a></div>
+        <meta charset="UTF-8">
+        <title>Users</title>
+    </head>
 
-</ul>
+<body>
+<h1>All the Users</h1>
+    <table>
+    <thead>
+    <th>Username</th>
+    <th>Follow</th>
+    </thead>
+    <tr th:each="fish : ${user}">
+        <td><h2><span th:text="${fish.username}"></span></h2></td>
+<!--        <td><a th:href="@{'/details/' + ${fish.id}}">All the Dets</a></td>-->
+        <td>
+            <form th:action="'/follow/' + ${fish.id}" method="POST"><input type="submit" value="Follow"></form>
+        </td>
+    </tr>
+</table>
+
 <div th:replace="fragments/footer :: foot"></div>
 </body>
 </html>

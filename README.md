@@ -20,8 +20,10 @@
     - see the details of a user when clicking
 - ```createpost```
     - create post
- - ```post```
+- ```post```
      - see the details of the post
+- ```feed```
+      - see the post of people you are following
     
 
 
@@ -43,7 +45,7 @@
 - ```localhost:8080/details```
 - ```localhost:8080/createpost```
 - ```localhost:8080/post```
-
+- ```localhost:8080/feed```
 
 ## Acknowledgments
 - Shout out to Luke chandler and class demo . 

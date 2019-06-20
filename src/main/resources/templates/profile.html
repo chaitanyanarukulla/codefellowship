@@ -1,42 +1,38 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-
-<!--<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/base-min.css">-->
 <link rel="stylesheet" href="style.css">
-
-
 <head>
     <meta charset="UTF-8">
-    <title>My Profile</title>
+    <title>Profile</title>
 </head>
 <body>
-
 <div th:replace="fragments/header :: nav"></div>
 
 <div class="main1">
-<h1 >WellCome :  <span th:text="${user.username}"></span></h1>
-
-<h2> Profile</h2>
-<ul>
-    <li th:each="user : ${user}">
-        Username: <span th:text="${user.username}"></span><br>
-        First Name: <span th:text="${user.fname}"></span><br>
-        Last Name: <span th:text="${user.lname}"></span><br>
-        Date of Birth: <span th:text="${user.dob}"></span><br>
-        Bio: <span th:text="${user.bio}"></span><br>
-    </li>
-</ul>
-
-
+    <h1 >WellCome :  <span th:text="${user.username}"></span></h1>
+    <h3> Your Profile</h3>
+    <ul>
+        <li th:each="user : ${user}">
+            Username: <span th:text="${user.username}"></span><br>
+            First Name: <span th:text="${user.fname}"></span><br>
+            Last Name: <span th:text="${user.lname}"></span><br>
+            Date of Birth: <span th:text="${user.dob}"></span><br>
+            Bio: <span th:text="${user.bio}"></span><br>
+        </li>
+    </ul>
+    <a th:href="@{/feed}">Feeds of people you are Following </a><br>
+// Posts
 <h3> Your Posts:</h3>
-<ul>
-    <li th:each="post :${user.posts}">
+    <ul>
+         <li th:each="post :${user.posts}">
         <span th:text="${post.body}"></span>
-<!--        <span th:text="${post.createdAt}"></span>-->
-        </a>
-    </li>
-</ul>
+        </li>
+    </ul>
+    <h4>You are  Following:</h4>
+    <ul>
+        <li th:each="followers : ${user.followers}"><span th:text= "${followers.username}"></span></li>
+    </ul>
 </div>
 
 <div th:replace="fragments/footer :: foot"></div>

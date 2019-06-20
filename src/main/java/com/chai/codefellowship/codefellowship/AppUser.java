@@ -1,10 +1,4 @@
 package com.chai.codefellowship.codefellowship;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.apache.catalina.User;
-import org.springframework.beans.factory.annotation.Autowired;
-
-
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -12,6 +6,7 @@ import javax.persistence.*;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class AppUser implements UserDetails {
@@ -90,6 +85,17 @@ public class AppUser implements UserDetails {
 
     @OneToMany(mappedBy = "creator")
     List<Post>posts;
+
+    public Set<AppUser> getFollowers() {
+        return followers;
+    }
+
+    public void setFollowers(Set<AppUser> followers) {
+        this.followers = followers;
+    }
+
+    @ManyToMany
+    Set<AppUser> followers;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

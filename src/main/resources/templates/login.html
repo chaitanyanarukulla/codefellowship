@@ -1,31 +1,23 @@
 <!DOCTYPE html>
 
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/base-min.css">
-<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/base-min.css">
+    <link rel="stylesheet" href="style.css">
 
-
-
-<head>
-    <meta charset="UTF-8">
-    <title>Log in </title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <title>Log in </title>
+    </head>
 <body>
-
 <form  action="/login" method="POST">
-
     <div class="login">
-
         <input type="text" placeholder="Username" name="username">
         <input type="password" placeholder="password" name="password">
-        <input type="submit" value="Sign In">
+        <input style="margin:30px 30px" type="submit" value="Sign In">
     </div>
     <div class="shadow"></div>
-   <div class="sin"> <a  th:href="@{/signup}" >Sign Up</a></div>
-
+    <div class="sin"> <a  th:href="@{/signup}" >Sign Up</a></div>
 </form>
-
-
 <div th:replace="fragments/footer :: foot"></div>
 </body>
 </html>

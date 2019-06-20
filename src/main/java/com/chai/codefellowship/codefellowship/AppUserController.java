@@ -1,6 +1,4 @@
 package com.chai.codefellowship.codefellowship;
-
-//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -69,6 +67,23 @@ public class AppUserController {
     @GetMapping("/logout")
     public String getLogoutPage() {
         return "logout";
+    }
+
+    @GetMapping("/feed")
+    public String getFeed(Principal p, Model m){
+        AppUser user = appUserRepository.findByUsername(p.getName());
+        m.addAttribute("user", user);
+        return "feed";
+
+    }
+
+    @PostMapping("/follow/{id}")
+    public RedirectView getFollow(@PathVariable Long id,Principal p){
+        AppUser loginuser = appUserRepository.findByUsername(p.getName());
+        AppUser newfollower = appUserRepository.findById(id).get();
+        loginuser.followers.add(newfollower);
+        appUserRepository.save(loginuser);
+        return new RedirectView("/profile");
     }
 
 }

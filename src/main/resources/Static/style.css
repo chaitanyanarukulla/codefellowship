@@ -94,7 +94,6 @@ input[type="submit"] {
   text-align:center;
   text-shadow:1px 1px 0px #37a69b;
   padding-top:6px;
-  margin: 29px 0 0 29px;
   position:relative;
   cursor:pointer;
   border: none;
@@ -160,3 +159,18 @@ text-align:center;
 }
 li{
 list-style-type: none;}
+
+td{
+text-align:center;}
+.sf{
+diaplay:block;}
+
+input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
