@@ -13,5 +13,6 @@
     <li th:each="user : ${user}">User Name: <span th:text="${user.username}"></span><br><a th:href="@{'/details/' + ${user.id}}">Details</a></li>
     <a href="/logout">Logout</a>
 </ul>
+<!--<div th:replace="fragments/footer :: foot"></div>-->
 </body>
 </html>

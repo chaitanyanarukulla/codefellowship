@@ -7,12 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
+import javax.persistence.*;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class AppUser implements UserDetails {
@@ -76,6 +75,10 @@ public class AppUser implements UserDetails {
         this.bio = bio;
     }
 
+    public List<Post> getPosts() {
+        return posts;
+    }
+
     public AppUser(String username, String password, String fname, String lname, Date dob, String bio) {
         this.username = username;
         this.password = password;
@@ -84,6 +87,9 @@ public class AppUser implements UserDetails {
         this.dob = dob;
         this.bio = bio;
     }
+
+    @OneToMany(mappedBy = "creator")
+    List<Post>posts;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
